@@ -1,0 +1,33 @@
+---
+
+- name: Install various performance monitoring and tuning utilities
+  connection: network_cli
+  gather_facts: false
+  hosts: all
+  tasks:
+
+  - name: Install common Linux administration utilities
+    apt:
+      name: linux-tools-common
+      update_cache: yes
+
+  - name: Install List of Open Files utility
+    apt:
+      name: lsof
+
+  - name: Install sysstat utility
+    apt:
+      name: sysstat
+
+  - name: Install Linux performance monitoring tools
+    apt:
+      name: perf-tools-unstable
+
+  - name: Install BPF compilation toolchain
+    apt:
+      name: bpfcc-tools
+
+  - name: Install Linux kernel tracing with BPF support
+    apt:
+      name: bpftrace
+
